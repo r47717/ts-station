@@ -1,45 +1,75 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import data from '../data';
 
 function Layout(props) {
+    const {categories} = data;
+    const {title, activeCategory} = props;
+
     return (
         <>
             <div className="container">
                 <Head>
-                    <title>{props.title}</title>
-                    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+                    <title>{title}</title>
+                    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
                 </Head>
-                <img src="/img/test.jpeg" style={{ width: "300px" }} alt=""/>
                 <nav>
-                    <Link href={'/'}><a><div className="nav-item">Home</div></a></Link>
-                    <Link href={'/about'}><a><div className="nav-item">About</div></a></Link>
+                    <Link href={'/'}><a>
+                        <div className={activeCategory === undefined ? "nav-item active" : "nav-item"}>Home</div>
+                    </a></Link>
+                    {
+                        categories && categories.length > 0 && categories.map(cat =>
+                            <Link
+                                key={cat.id}
+                                href={`/category/${cat.id}`}
+                            >
+                                <a>
+                                    <div
+                                        className={activeCategory == cat.id ? 'nav-item active' : 'nav-item'}>{cat.title}
+                                    </div>
+                                </a>
+                            </Link>
+                        )
+                    }
                 </nav>
                 <div>
                     {props.children}
                 </div>
             </div>
-            { /* language=CSS */ }
+            { /* language=CSS */}
             <style jsx>{`
                 nav {
                     display: flex;
                     justify-content: flex-start;
+                    margin: 0 0 30px 0;
                 }
+
                 .nav-item {
                     margin: 5px;
-                    background: gray;
+                    background: #666666;
                     padding: 10px 20px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                 }
+
+                .nav-item:hover {
+                    background: #999999;
+                }
+
+                .nav-item.active {
+                    background: #999999;
+                }
+
                 a {
                     text-decoration: none;
                     color: #FFFFFF;
                 }
+
             `}</style>
 
-            { /* language=CSS */ }
+            { /* language=CSS */}
             <style jsx global>{`
                 button {
                     cursor: pointer;

@@ -1,10 +1,9 @@
-import {useRouter} from "next/router";
 import Layout from "../../components/Layout";
+import data from "../../data";
 
-function Test({title, description, rating, runs}) {
-    const router = useRouter();
-    const { id } = router.query;
-    
+function Test({test}) {
+    const {id, title, category} = test;
+
     return (
     <Layout title='Test'>
         <div>
@@ -20,15 +19,15 @@ function Test({title, description, rating, runs}) {
                     </tr>
                     <tr>
                         <td>Description</td>
-                        <td>{description}</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Rating</td>
-                        <td>{rating}</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Runs</td>
-                        <td>{runs}</td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
@@ -39,14 +38,27 @@ function Test({title, description, rating, runs}) {
   )
 }
 
+export const getStaticProps = async ({params: {id}}) => {
+    const {tests} = data;
 
-Test.getInitialProps = async ({req, query: { id }}) => {
-  const { title, description, rating, runs } = {};
-  
-  return {
-    id, title, description, rating, runs
-  }
+    const test = tests.find(test => test.id == id);
+
+    return {
+        props: {
+            test
+        }
+    }
 };
 
+export const getStaticPaths = async () => {
+    const {tests} = data;
+
+    return {
+        paths: tests.map(test => ({
+            params: {id: '' + test.id}
+        })),
+        fallback: false // 404 if wrong param
+    };
+};
 
 export default Test;

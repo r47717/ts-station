@@ -1,41 +1,67 @@
-import Link from 'next/link';
 import Layout from "../components/Layout";
+import Link from 'next/link';
+import data from "../data";
 
-function Index({tests, origin}) {
-    
-    function newTestAdded() {
-        window.location.reload();
-    }
-    
+function Index({categories, tests}) {
+
     return (
-        <Layout title='Test Application'>
-            <div>
-                <h2>Выберите тест</h2>
-                {
-                    tests && tests.length > 0 && (<ul>{
-                        tests.map((item) => (
-                            <li key={item.id}><Link href={'/test/[id]'} as={`/test/${item.id}`}><a>{ item.title }</a></Link></li>
-                        ))
-                    }</ul>)
+        <Layout title='Test Station'>
+            {
+                categories.map(cat => <div className="card single-category-card">
+                    <div className="card-header">
+                        <h3>
+                            <Link href={`/category/${cat.id}`} as={`/category/${cat.id}`}><a>{cat.title}</a></Link>
+                        </h3>
+                    </div>
+                    <div className="card-body">
+                        <table className={'table table-condensed table-borderless table-hover'}>
+                            <tbody>
+                            <tr>
+                                <td>Tests Available:</td>
+                                <td><span
+                                    className={'badge badge-pill badge-warning'}>{tests.reduce((acc, test) => test.category == cat.id ? acc + 1 : acc, 0)}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tests Run:</td>
+                                <td><span className={'badge badge-pill badge-warning'}>0</span></td>
+                            </tr>
+                            <tr>
+                                <td>Tests Tests Passed:</td>
+                                <td><span className={'badge badge-pill badge-warning'}>0</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>)
+            }
+            { /* language=CSS */}
+            <style jsx>{`
+                .single-category-card {
+                    display: inline-block;
+                    min-width: 300px;
+                    min-height: 200px;
+                    margin: 20px;
                 }
-                {
-                    tests && tests.length === 0 && <div>No tests found</div>
+
+                span.badge {
+                    padding: 7px 10px;
+                    font-size: 90%;
                 }
-            </div>
+            `}</style>
         </Layout>
-  )
+    )
 }
 
-Index.getInitialProps = async ({req}) => {
-  const tests = [
-      {id: 1, title: 'test 1'},
-      {id: 2, title: 'test 2'},
-      {id: 3, title: 'test 3'},
-      {id: 4, title: 'test 4'},
-      {id: 5, title: 'test 5'},
-  ];
+export const getStaticProps = async () => {
+    const {categories, tests} = data;
 
-  return { tests }
+    return {
+        props: {
+            categories,
+            tests
+        }
+    }
 };
 
 export default Index;
