@@ -2,36 +2,34 @@ import Layout from "../../components/Layout";
 import data from "../../data";
 
 function Test({test}) {
-    const {id, title, category} = test;
+    const {id, title, category, q: questions} = test;
+
+    function onClick(qid, answer) {
+        console.log(qid, answer);
+    }
 
     return (
     <Layout title='Test'>
         <div>
-            <table className='table table-bordered table-striped mt-5 mb-5'>
-                <tbody>
-                    <tr>
-                        <td>ID</td>
-                        <td>{id}</td>
-                    </tr>
-                    <tr>
-                        <td>Title</td>
-                        <td>{title}</td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Rating</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Runs</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button className='btn btn-success' onClick={() => {}}>Submit</button>
+            <div className="questions">
+                {
+                    questions.map(q => <div key={q.id} className="card">
+                        <div className="card-header">{q.title}</div>
+                        <div className="card-body">
+                            {
+                                q.a.map(answer => <div key={answer}>
+                                    <input type="radio" name={q.id} value={answer} onClick={() => onClick(q.id, answer)}/>&nbsp;&nbsp;{answer}
+                                </div>)
+                            }
+
+                        </div>
+                    </div>)
+                }
+            </div>
+            <div className="button-group mt-5">
+                <button className='btn btn-success' onClick={() => {}}>Previous</button>
+                <button className='btn btn-success float-right' onClick={() => {}}>Next</button>
+            </div>
         </div>
     
     </Layout>
