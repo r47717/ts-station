@@ -5,7 +5,7 @@ import data from '../data';
 
 function Layout(props) {
     const {categories} = data;
-    const {title, activeCategory} = props;
+    const {title, page, activeCategory} = props;
 
     return (
         <>
@@ -16,7 +16,7 @@ function Layout(props) {
                 </Head>
                 <nav>
                     <Link href={'/'}><a>
-                        <div className={activeCategory === undefined ? "nav-item active" : "nav-item"}>Home</div>
+                        <div className={page === 'home' ? "nav-item active" : "nav-item"}>Home</div>
                     </a></Link>
                     {
                         categories && categories.length > 0 && categories.map(cat =>
@@ -26,12 +26,15 @@ function Layout(props) {
                             >
                                 <a>
                                     <div
-                                        className={activeCategory == cat.id ? 'nav-item active' : 'nav-item'}>{cat.title}
+                                        className={page === 'category' && activeCategory == cat.id ? 'nav-item active' : 'nav-item'}>{cat.title}
                                     </div>
                                 </a>
                             </Link>
                         )
                     }
+                    <Link href={'/about'}><a>
+                        <div className={page === 'about' ? "nav-item active" : "nav-item"}>About</div>
+                    </a></Link>
                 </nav>
                 <div>
                     {props.children}
@@ -42,7 +45,7 @@ function Layout(props) {
                 nav {
                     display: flex;
                     justify-content: flex-start;
-                    margin: 0 0 30px 0;
+                    margin: 20px 0 40px 0;
                 }
 
                 .nav-item {

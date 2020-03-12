@@ -5,9 +5,9 @@ import data from "../data";
 function Index({categories, tests}) {
 
     return (
-        <Layout title='Test Station'>
+        <Layout page="home" title='Test Station'>
             {
-                categories.map(cat => <div className="card single-category-card">
+                categories.map(cat => <div key={cat.id} className="card single-category-card">
                     <div className="card-header">
                         <h3>
                             <Link href={`/category/${cat.id}`} as={`/category/${cat.id}`}><a>{cat.title}</a></Link>
@@ -41,7 +41,7 @@ function Index({categories, tests}) {
                     display: inline-block;
                     min-width: 300px;
                     min-height: 200px;
-                    margin: 20px;
+                    margin: 0 20px 20px 0;
                 }
 
                 span.badge {

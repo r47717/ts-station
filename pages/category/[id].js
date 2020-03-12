@@ -10,7 +10,7 @@ function Category({category, tests}) {
     const {id, title} = category;
 
     return (
-        <Layout title={`Tests by Category ${title}`} activeCategory={id}>
+        <Layout page="category" title={`Tests by Category ${title}`} activeCategory={id}>
             <h1>Tests by Category <strong><i>{title}</i></strong></h1>
             {
                 tests.length > 0
