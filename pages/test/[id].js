@@ -1,25 +1,9 @@
 import {useRouter} from "next/router";
-import axios from 'axios';
-import absoluteUrl from 'next-absolute-url';
 import Layout from "../../components/Layout";
-import {saveTest, deleteTest} from "../../services/test-service";
 
-function Test({title, description, rating, runs, origin}) {
+function Test({title, description, rating, runs}) {
     const router = useRouter();
     const { id } = router.query;
-    
-    async function onSubmit() {
-        const res = await saveTest(origin, id);
-        window.location.reload();
-    }
-    
-    async function onDelete() {
-        if (confirm("Are you sure?")) {
-            const res = await deleteTest(origin, id);
-            window.location = "/";
-        }
-    }
-    
     
     return (
     <Layout title='Test'>
@@ -48,8 +32,7 @@ function Test({title, description, rating, runs, origin}) {
                     </tr>
                 </tbody>
             </table>
-            <button className='btn btn-success' onClick={onSubmit}>Submit</button>
-            <button className='btn btn-danger delete-btn float-right' onClick={onDelete}>Delete</button>
+            <button className='btn btn-success' onClick={() => {}}>Submit</button>
         </div>
     
     </Layout>
@@ -58,12 +41,10 @@ function Test({title, description, rating, runs, origin}) {
 
 
 Test.getInitialProps = async ({req, query: { id }}) => {
-  const { origin } = absoluteUrl(req);
-  const results = await axios.get(`${origin}/api/test?id=${id}`);
-  const { title, description, rating, runs } = results.data.results;
+  const { title, description, rating, runs } = {};
   
   return {
-    id, title, description, rating, runs, origin
+    id, title, description, rating, runs
   }
 };
 

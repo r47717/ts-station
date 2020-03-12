@@ -19,6 +19,7 @@ function Layout(props) {
                     {props.children}
                 </div>
             </div>
+            { /* language=CSS */ }
             <style jsx>{`
                 nav {
                     display: flex;
@@ -37,7 +38,8 @@ function Layout(props) {
                     color: #FFFFFF;
                 }
             `}</style>
-    
+
+            { /* language=CSS */ }
             <style jsx global>{`
                 button {
                     cursor: pointer;
