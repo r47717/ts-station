@@ -4,12 +4,14 @@ import data from "../../data";
 import {
   allTestQuestionsAnswered,
   getAnswersForTest,
+  getCategoryForTid,
   restore,
   saveAnswersForTest,
   testRunReducer
 } from "../../services";
+import { highlight } from "../../services/syntax";
 
-function Test({ test }) {
+function Test({ test, category }) {
   const { id: tid, q: questions } = test;
   const [submitDisabled, setSubmitDisabled] = useState(true);
   const results = useMemo(() => restore(), []);
@@ -38,14 +40,21 @@ function Test({ test }) {
   }
 
   return (
-    <Layout title="Test">
+    <Layout title="Test" page="category" activeCategory={category}>
       <div>
+        <h1>Test #{tid}</h1>
         <div className="questions">
           {questions.map(q => (
             <div key={q.id} className="card mb-2">
               <div className="card-header">
                 <div>{q.title}</div>
-                <div>{q.code && <code>{q.code}</code>}</div>
+                <div>
+                  {q.code && (
+                    <code
+                      dangerouslySetInnerHTML={{ __html: highlight(q.code) }}
+                    />
+                  )}
+                </div>
               </div>
               <div className="card-body">
                 {q.a.map(answer => (
@@ -89,6 +98,7 @@ function Test({ test }) {
           background: #333333;
           padding: 20px;
           margin: 20px 0 20px 0;
+          border-radius: 10px;
         }
       `}</style>
     </Layout>
@@ -99,10 +109,12 @@ export const getStaticProps = async ({ params: { id } }) => {
   const { tests } = data;
 
   const test = tests.find(test => test.id === +id);
+  const category = test && getCategoryForTid(data, test.id);
 
   return {
     props: {
-      test
+      test,
+      category
     }
   };
 };

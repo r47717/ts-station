@@ -27,9 +27,10 @@ export default {
         {
           id: 2,
           title: "What will the following code output to console:",
-          code: `
-                        const obj = { a = 123 };
-                    `,
+          code: `const obj = { a = 123 };
+                 for (let i = 0; i < 10; i++) {
+                   console.log(i);
+                 }`,
           a: [
             { id: 1, value: "6" },
             { id: 2, value: "8" },

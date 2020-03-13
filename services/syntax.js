@@ -1,4 +1,4 @@
-const TS_KEY_WORDS = [
+const TS_KEYWORDS = [
   "break",
   "case",
   "catch",
@@ -61,10 +61,24 @@ const TS_KEY_WORDS = [
   "of"
 ];
 
-const highligher = {
-  keywords: ``
+const map = {
+  keywords: `<span style="color: #c7662e">DATA</span>`
 };
 
+function nl2br(str) {
+  if (typeof str === "undefined" || str === null) {
+    return "";
+  }
+  return (str + "").replace(
+    /([^>\r\n]?)(\r\n|\n\r|\r|\n)/g,
+    "$1" + "<br>" + "$2"
+  );
+}
+
 export function highlight(str) {
-  return str.replace();
+  return nl2br(
+    str.replace(new RegExp("(" + TS_KEYWORDS.join("|") + ")", "gm"), str =>
+      map.keywords.replace("DATA", str)
+    )
+  );
 }
