@@ -1,8 +1,10 @@
 import Layout from "../components/Layout";
 import Link from 'next/link';
 import data from "../data";
+import {countTestsRun, countTestsSuccessful, restore} from "../services";
 
 function Index({categories, tests}) {
+    const results = restore();
 
     return (
         <Layout page="home" title='Test Station'>
@@ -18,17 +20,33 @@ function Index({categories, tests}) {
                             <tbody>
                             <tr>
                                 <td>Tests Available:</td>
-                                <td><span
-                                    className={'badge badge-pill badge-warning'}>{tests.reduce((acc, test) => test.category == cat.id ? acc + 1 : acc, 0)}</span>
+                                <td>
+                                    <span
+                                        className={'badge badge-pill badge-warning'}
+                                    >
+                                        {tests.reduce((acc, test) => test.category == cat.id ? acc + 1 : acc, 0)}
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Tests Run:</td>
-                                <td><span className={'badge badge-pill badge-warning'}>0</span></td>
+                                <td>
+                                    <span
+                                        className={'badge badge-pill badge-warning'}
+                                    >
+                                        {countTestsRun(results, cat.id)}
+                                    </span>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Tests Tests Passed:</td>
-                                <td><span className={'badge badge-pill badge-warning'}>0</span></td>
+                                <td>Tests Passed:</td>
+                                <td>
+                                    <span
+                                        className={'badge badge-pill badge-warning'}
+                                    >
+                                        {countTestsSuccessful(results, cat.id)}
+                                    </span>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
