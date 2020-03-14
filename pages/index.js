@@ -1,7 +1,12 @@
 import Layout from "../components/Layout";
 import Link from "next/link";
 import data from "../data";
-import { countTestsRun, countTestsSuccessful, restore } from "../services";
+import {
+  countTestsAvailable,
+  countTestsRun,
+  countTestsSuccessful,
+  restore
+} from "../services";
 
 function Index({ categories, tests }) {
   const results = restore();
@@ -26,11 +31,7 @@ function Index({ categories, tests }) {
                   <td>Tests Available:</td>
                   <td>
                     <span className={"badge badge-pill badge-warning"}>
-                      {tests.reduce(
-                        (acc, test) =>
-                          test.category == cat.id ? acc + 1 : acc,
-                        0
-                      )}
+                      {countTestsAvailable(tests, cat.id)}
                     </span>
                   </td>
                 </tr>
@@ -38,7 +39,7 @@ function Index({ categories, tests }) {
                   <td>Tests Run:</td>
                   <td>
                     <span className={"badge badge-pill badge-warning"}>
-                      {countTestsRun(results, cat.id)}
+                      {countTestsRun(data, results, cat.id)}
                     </span>
                   </td>
                 </tr>
@@ -46,7 +47,7 @@ function Index({ categories, tests }) {
                   <td>Tests Passed:</td>
                   <td>
                     <span className={"badge badge-pill badge-warning"}>
-                      {countTestsSuccessful(results, cat.id)}
+                      {countTestsSuccessful(data, results, cat.id)}
                     </span>
                   </td>
                 </tr>

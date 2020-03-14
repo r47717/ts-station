@@ -1,18 +1,22 @@
 import { useEffect, useMemo, useReducer, useState } from "react";
+import router from "next/router";
 import Layout from "../../components/Layout";
 import data from "../../data";
 import {
   allTestQuestionsAnswered,
+  getAnswerForQuestion,
   getAnswersForTest,
   getCategoryForTid,
+  getNextTestInCategory,
+  getPrevTestInCategory,
   restore,
   saveAnswersForTest,
   testRunReducer
 } from "../../services";
 import { highlight } from "../../services/syntax";
 
-function Test({ test, category }) {
-  const { id: tid, q: questions } = test;
+function Test({ test, category, prevTest, nextTest }) {
+  const { id: tid, q: questions, title } = test;
   const [submitDisabled, setSubmitDisabled] = useState(true);
   const results = useMemo(() => restore(), []);
   const [answers, dispatch] = useReducer(
@@ -39,10 +43,20 @@ function Test({ test, category }) {
     saveAnswersForTest(results, tid, answers);
   }
 
+  async function onClickPrevious() {
+    await router.push(`/test/${prevTest}`);
+  }
+
+  async function onClickNext() {
+    await router.push(`/test/${nextTest}`);
+  }
+
   return (
     <Layout title="Test" page="category" activeCategory={category}>
       <div>
-        <h1>Test #{tid}</h1>
+        <h1>
+          Test #{tid} ({title})
+        </h1>
         <div className="questions">
           {questions.map(q => (
             <div key={q.id} className="card mb-2">
@@ -63,6 +77,9 @@ function Test({ test, category }) {
                       type="radio"
                       name={q.id}
                       value={answer.id}
+                      defaultChecked={
+                        getAnswerForQuestion(answers, q.id) === answer.id
+                      }
                       onClick={() => onClick(q.id, answer.id)}
                     />
                     &nbsp;&nbsp;{answer.value}
@@ -81,10 +98,18 @@ function Test({ test, category }) {
             Submit
           </button>
           <div>
-            <button className="btn btn-info mr-3" onClick={() => {}}>
+            <button
+              className="btn btn-info mr-3"
+              disabled={prevTest === null}
+              onClick={onClickPrevious}
+            >
               &#60;&#60;&nbsp;Previous
             </button>
-            <button className="btn btn-info" onClick={() => {}}>
+            <button
+              className="btn btn-info"
+              disabled={nextTest === null}
+              onClick={onClickNext}
+            >
               Next&nbsp;&#62;&#62;
             </button>
           </div>
@@ -110,11 +135,15 @@ export const getStaticProps = async ({ params: { id } }) => {
 
   const test = tests.find(test => test.id === +id);
   const category = test && getCategoryForTid(data, test.id);
+  const prevTest = getPrevTestInCategory(data, test.id);
+  const nextTest = getNextTestInCategory(data, test.id);
 
   return {
     props: {
       test,
-      category
+      category,
+      prevTest,
+      nextTest
     }
   };
 };
