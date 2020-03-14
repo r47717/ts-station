@@ -1,3 +1,6 @@
+import * as prettier from "prettier/standalone";
+import * as parserTypescript from "prettier/parser-typescript";
+
 const TS_KEYWORDS = [
   "break",
   "case",
@@ -76,6 +79,11 @@ function nl2br(str) {
 }
 
 export function highlight(str) {
+  str = prettier.format(str, {
+    parser: "typescript",
+    plugins: [parserTypescript]
+  });
+
   return nl2br(
     str.replace(new RegExp("(" + TS_KEYWORDS.join("|") + ")", "gm"), str =>
       map.keywords.replace("DATA", str)

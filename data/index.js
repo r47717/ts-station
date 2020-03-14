@@ -22,12 +22,13 @@ export default {
             { id: 3, value: "10" },
             { id: 4, value: "5" },
             { id: 5, value: "Hundreds" }
-          ]
+          ],
+          correct: [5]
         },
         {
           id: 2,
           title: "What will the following code output to console:",
-          code: `const obj = { a = 123 };
+          code: `const obj = { a: 123 };
                  for (let i = 0; i < 10; i++) {
                    console.log(i);
                  }`,
@@ -37,7 +38,8 @@ export default {
             { id: 3, value: "10" },
             { id: 4, value: "5" },
             { id: 5, value: "Hundreds" }
-          ]
+          ],
+          correct: [3]
         }
       ]
     },
@@ -55,12 +57,13 @@ export default {
             { id: 3, value: "10" },
             { id: 4, value: "5" },
             { id: 5, value: "Hundreds" }
-          ]
+          ],
+          correct: [4]
         },
         {
           id: 2,
           title: "What will the following code output to console:",
-          code: `const obj = { a = 123 };
+          code: `const obj = { a: 123 };
                  for (let i = 0; i < 10; i++) {
                    console.log(i);
                  }`,
@@ -70,7 +73,8 @@ export default {
             { id: 3, value: "10" },
             { id: 4, value: "5" },
             { id: 5, value: "Hundreds" }
-          ]
+          ],
+          correct: [1]
         }
       ]
     },
@@ -88,12 +92,13 @@ export default {
             { id: 3, value: "10" },
             { id: 4, value: "5" },
             { id: 5, value: "Hundreds" }
-          ]
+          ],
+          correct: [3]
         },
         {
           id: 2,
           title: "What will the following code output to console:",
-          code: `const obj = { a = 123 };
+          code: `const obj = { a: 123 };
                  for (let i = 0; i < 10; i++) {
                    console.log(i);
                  }`,
@@ -103,7 +108,8 @@ export default {
             { id: 3, value: "10" },
             { id: 4, value: "5" },
             { id: 5, value: "Hundreds" }
-          ]
+          ],
+          correct: [2]
         }
       ]
     }
