@@ -79,10 +79,12 @@ function nl2br(str) {
 }
 
 export function highlight(str) {
-  str = prettier.format(str, {
-    parser: "typescript",
-    plugins: [parserTypescript]
-  });
+  str = prettier
+    .format(str, {
+      parser: "typescript",
+      plugins: [parserTypescript]
+    })
+    .replace(/ /g, "&nbsp;");
 
   return nl2br(
     str.replace(new RegExp("(" + TS_KEYWORDS.join("|") + ")", "gm"), str =>
