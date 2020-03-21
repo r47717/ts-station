@@ -13,6 +13,10 @@ function Layout(props) {
         <Head>
           <title>{title}</title>
           <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <nav>
           <Link href={"/"}>
@@ -88,6 +92,7 @@ function Layout(props) {
           height: 100%;
         }
         body {
+          font-family: Roboto, sans-serif;
           background: url("/img/ts.jpg") center / cover no-repeat;
         }
         button {

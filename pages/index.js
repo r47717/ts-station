@@ -28,7 +28,7 @@ function Index({ categories, tests }) {
       {summary.map(
         item =>
           item.available > 0 && (
-            <div key={item.category.id} className="card single-category-card">
+            <div key={item.category.id} className="card">
               <div className="card-header">
                 <h3>
                   <Link
@@ -88,11 +88,12 @@ function Index({ categories, tests }) {
       )}
       {/* language=CSS */}
       <style jsx>{`
-        .single-category-card {
+        .card {
           display: inline-block;
           min-width: 300px;
           min-height: 200px;
           margin: 0 20px 20px 0;
+          box-shadow: 10px 10px 10px #777777;
         }
         span.badge {
           padding: 7px 10px;

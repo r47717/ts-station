@@ -36,12 +36,17 @@ function About() {
           </div>
         </div>
       </div>
+      {/* language=CSS */}
       <style jsx>{`
         .images img {
           display: inline-block;
           margin: 30px;
           width: 150px;
           height: auto;
+        }
+
+        .card {
+          box-shadow: 10px 10px 10px #777777;
         }
       `}</style>
     </Layout>
