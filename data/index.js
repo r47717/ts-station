@@ -1,11 +1,11 @@
 export default {
   categories: [
-    { id: 1, title: "TypeScript" },
-    { id: 2, title: "JavaScript" },
-    { id: 3, title: "React" },
-    { id: 4, title: "NextJS" },
-    { id: 5, title: "Web" },
-    { id: 6, title: "HTTP(s)" }
+    { id: 1, title: "Types" },
+    { id: 2, title: "Statements" },
+    { id: 3, title: "Generics" },
+    { id: 4, title: "Iterators" },
+    { id: 5, title: "Generators" },
+    { id: 6, title: "Modules" }
   ],
   tests: [
     {

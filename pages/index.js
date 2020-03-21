@@ -10,52 +10,82 @@ import {
 
 function Index({ categories, tests }) {
   const results = restore();
+  const summary = [];
+
+  for (let category of categories) {
+    summary.push({
+      category,
+      available: countTestsAvailable(tests, category.id),
+      run: countTestsRun(data, results, category.id),
+      passed: countTestsSuccessful(data, results, category.id)
+    });
+  }
+
+  function onClearResults(catid) {}
 
   return (
     <Layout page="home" title="Test Station">
-      {categories.map(cat => (
-        <div key={cat.id} className="card single-category-card">
-          <div className="card-header">
-            <h3>
-              <Link href={`/category/${cat.id}`} as={`/category/${cat.id}`}>
-                <a>{cat.title}</a>
-              </Link>
-            </h3>
-          </div>
-          <div className="card-body">
-            <table
-              className={"table table-condensed table-borderless table-hover"}
-            >
-              <tbody>
-                <tr>
-                  <td>Tests Available:</td>
-                  <td>
-                    <span className={"badge badge-pill badge-warning"}>
-                      {countTestsAvailable(tests, cat.id)}
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Tests Run:</td>
-                  <td>
-                    <span className={"badge badge-pill badge-warning"}>
-                      {countTestsRun(data, results, cat.id)}
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Tests Passed:</td>
-                  <td>
-                    <span className={"badge badge-pill badge-warning"}>
-                      {countTestsSuccessful(data, results, cat.id)}
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      ))}
+      {summary.map(
+        item =>
+          item.available > 0 && (
+            <div key={item.category.id} className="card single-category-card">
+              <div className="card-header">
+                <h3>
+                  <Link
+                    href={`/category/${item.category.id}`}
+                    as={`/category/${item.category.id}`}
+                  >
+                    <a>{item.category.title}</a>
+                  </Link>
+                </h3>
+              </div>
+              <div className="card-body">
+                <table
+                  className={
+                    "table table-condensed table-borderless table-hover"
+                  }
+                >
+                  <tbody>
+                    <tr>
+                      <td>Tests Available:</td>
+                      <td>
+                        <span className={"badge badge-pill badge-warning"}>
+                          {item.available}
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Tests Run:</td>
+                      <td>
+                        {item.run > 0 && (
+                          <span className={"badge badge-pill badge-warning"}>
+                            {item.run}
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Tests Passed:</td>
+                      <td>
+                        {item.run > 0 && (
+                          <span className={"badge badge-pill badge-warning"}>
+                            {item.passed}
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button
+                  className="btn btn-sm btn-warning"
+                  onClick={() => onClearResults(item.category.id)}
+                >
+                  Clear results
+                </button>
+              </div>
+            </div>
+          )
+      )}
       {/* language=CSS */}
       <style jsx>{`
         .single-category-card {

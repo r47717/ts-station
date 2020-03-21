@@ -24,6 +24,11 @@ export default function TestList({ tests }) {
             </tr>
           ))}
       </tbody>
+      <style jsx>{`
+        table {
+          background: #ffffff;
+        }
+      `}</style>
     </table>
   );
 }

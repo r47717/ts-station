@@ -81,9 +81,15 @@ function Layout(props) {
           color: #ffffff;
         }
       `}</style>
-
       {/* language=CSS */}
       <style jsx global>{`
+        html,
+        body {
+          height: 100%;
+        }
+        body {
+          background: url("/img/ts.jpg") center / cover no-repeat;
+        }
         button {
           cursor: pointer;
         }
