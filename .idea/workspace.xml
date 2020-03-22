@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc70059e-cdfc-4feb-94fe-0feff015d02d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/SingleChoiceTest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/common.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.storybook/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stories/index.stories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/TestList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SingleChoiceTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SingleChoiceTest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Test.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/category/[id].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/category/[id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/test/[id].js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,6 +75,7 @@
       <workItem from="1584778152366" duration="3325000" />
       <workItem from="1584792353831" duration="1227000" />
       <workItem from="1584793603655" duration="16561000" />
+      <workItem from="1584893340733" duration="1251000" />
     </task>
     <servers />
   </component>
