@@ -1,118 +1,81 @@
 import Layout from "../components/Layout";
-import Link from "next/link";
-import data from "../data";
-import {
-  countTestsAvailable,
-  countTestsRun,
-  countTestsSuccessful,
-  restore
-} from "../services";
 
-function Index({ categories, tests }) {
-  const results = restore();
-  const summary = [];
-
-  for (let category of categories) {
-    summary.push({
-      category,
-      available: countTestsAvailable(tests, category.id),
-      run: countTestsRun(data, results, category.id),
-      passed: countTestsSuccessful(data, results, category.id)
-    });
-  }
-
-  function onClearResults(catid) {}
-
+function Index() {
   return (
     <Layout page="home" title="Test Station">
-      {summary.map(
-        item =>
-          item.available > 0 && (
-            <div key={item.category.id} className="card">
-              <div className="card-header">
-                <h3>
-                  <Link
-                    href={`/category/${item.category.id}`}
-                    as={`/category/${item.category.id}`}
-                  >
-                    <a>{item.category.title}</a>
-                  </Link>
-                </h3>
-              </div>
-              <div className="card-body">
-                <table
-                  className={
-                    "table table-condensed table-borderless table-hover"
-                  }
-                >
-                  <tbody>
-                    <tr>
-                      <td>Tests Available:</td>
-                      <td>
-                        <span className={"badge badge-pill badge-warning"}>
-                          {item.available}
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Tests Run:</td>
-                      <td>
-                        {item.run > 0 && (
-                          <span className={"badge badge-pill badge-warning"}>
-                            {item.run}
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Tests Passed:</td>
-                      <td>
-                        {item.run > 0 && (
-                          <span className={"badge badge-pill badge-warning"}>
-                            {item.passed}
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <button
-                  className="btn btn-sm btn-warning"
-                  onClick={() => onClearResults(item.category.id)}
-                >
-                  Clear results
-                </button>
-              </div>
-            </div>
-          )
-      )}
+      <div className="wrapper">
+        <div className="card card-resources">
+          <div className="card-header">Major Web Resources</div>
+          <div className="card-body">
+            <a href="https://github.com/Microsoft/TypeScript">Official site</a>
+            <a href="https://www.typescriptlang.org/play/index.html">
+              Playground
+            </a>
+            <a href="https://en.wikipedia.org/wiki/TypeScript">Wikipedia</a>
+            <a href="https://github.com/Microsoft/TypeScript">Github</a>
+            <a href="https://github.com/Microsoft/TypeScript/wiki/Roadmap">
+              Roadmap
+            </a>
+          </div>
+        </div>
+        <div className="card card-hejlsberg">
+          <div className="card-header">Anders Hejlsberg about TS</div>
+          <div className="card-body">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/ET4kT88JRXs"
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+        <div className="card card-blog">
+          <div className="card-header">Developers Blog</div>
+          <div className="card-body">
+            <iframe
+              className="w-100 h-100"
+              src="https://devblogs.microsoft.com/typescript/"
+              frameborder="0"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* language=CSS */}
       <style jsx>{`
-        .card {
-          display: inline-block;
-          min-width: 300px;
-          min-height: 200px;
-          margin: 0 20px 20px 0;
-          box-shadow: 10px 10px 10px #777777;
+        .wrapper {
+          height: 80vh;
+          display: grid;
+          grid-template-columns: 16% 16% 16% 16% 16%;
+          grid-template-rows: 25% 25% 25% 25%;
+          grid-gap: 20px;
         }
-        span.badge {
-          padding: 7px 10px;
-          font-size: 90%;
+
+        .card a {
+          display: block;
+        }
+
+        .card-resources {
+          grid-area: 1 / 1 / 3 / 2;
+        }
+
+        .card-blog {
+          grid-area: 1 / 5 / 5 / 7;
+        }
+
+        .card-hejlsberg {
+          grid-area: 1 / 2 / 3 / 5;
+        }
+
+        .card-hejlsberg iframe {
+          width: 100%;
+          height: 100%;
         }
       `}</style>
     </Layout>
   );
 }
-
-export const getStaticProps = async () => {
-  const { categories, tests } = data;
-
-  return {
-    props: {
-      categories,
-      tests
-    }
-  };
-};
 
 export default Index;

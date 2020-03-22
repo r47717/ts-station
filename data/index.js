@@ -1,117 +1,73 @@
+const types = {
+  SingleChoice: 1,
+  MultipleChoice: 2
+};
+
 export default {
   categories: [
-    { id: 1, title: "Types" },
-    { id: 2, title: "Statements" },
-    { id: 3, title: "Generics" },
-    { id: 4, title: "Iterators" },
-    { id: 5, title: "Generators" },
-    { id: 6, title: "Modules" }
+    {
+      id: 1,
+      title: "Basic Types",
+      docs: "https://www.typescriptlang.org/docs/handbook/basic-types.html"
+    },
+    {
+      id: 2,
+      title: "Advanced Types",
+      docs: "https://www.typescriptlang.org/docs/handbook/advanced-types.html"
+    },
+    {
+      id: 3,
+      title: "Interfaces",
+      docs: "https://www.typescriptlang.org/docs/handbook/interfaces.html"
+    },
+    {
+      id: 4,
+      title: "Generics",
+      docs: "https://www.typescriptlang.org/docs/handbook/generics.html"
+    },
+    {
+      id: 5,
+      title: "Iterators",
+      docs:
+        "https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html"
+    },
+    {
+      id: 6,
+      title: "Generators",
+      docs:
+        "https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html"
+    },
+    {
+      id: 7,
+      title: "Modules",
+      docs: "https://www.typescriptlang.org/docs/handbook/modules.html"
+    }
   ],
   tests: [
     {
       id: 1,
       category: 1,
-      title: "Basic types",
-      q: [
-        {
-          id: 1,
-          title: "How many basic types are in TypeScript?",
-          a: [
-            { id: 1, value: "6" },
-            { id: 2, value: "8" },
-            { id: 3, value: "10" },
-            { id: 4, value: "5" },
-            { id: 5, value: "Hundreds" }
-          ],
-          correct: [5]
-        },
-        {
-          id: 2,
-          title: "What will the following code output to console:",
-          code: `const obj = { a: 123 };
-                 for (let i = 0; i < 10; i++) {
-                   console.log(i);
-                 }`,
-          a: [
-            { id: 1, value: "6" },
-            { id: 2, value: "8" },
-            { id: 3, value: "10" },
-            { id: 4, value: "5" },
-            { id: 5, value: "Hundreds" }
-          ],
-          correct: [3]
-        }
-      ]
+      q: "How many basic types are in TypeScript?",
+      t: types.SingleChoice,
+      a: [
+        { id: 1, value: "6" },
+        { id: 2, value: "8" },
+        { id: 3, value: "10" },
+        { id: 4, value: "5" }
+      ],
+      correct: [1]
     },
     {
       id: 2,
       category: 1,
-      title: "Advanced types",
-      q: [
-        {
-          id: 1,
-          title: "How many basic types are in TypeScript?",
-          a: [
-            { id: 1, value: "6" },
-            { id: 2, value: "8" },
-            { id: 3, value: "10" },
-            { id: 4, value: "5" },
-            { id: 5, value: "Hundreds" }
-          ],
-          correct: [4]
-        },
-        {
-          id: 2,
-          title: "What will the following code output to console:",
-          code: `const obj = { a: 123 };
-                 for (let i = 0; i < 10; i++) {
-                   console.log(i);
-                 }`,
-          a: [
-            { id: 1, value: "6" },
-            { id: 2, value: "8" },
-            { id: 3, value: "10" },
-            { id: 4, value: "5" },
-            { id: 5, value: "Hundreds" }
-          ],
-          correct: [1]
-        }
-      ]
-    },
-    {
-      id: 3,
-      category: 1,
-      title: "Very Advanced types",
-      q: [
-        {
-          id: 1,
-          title: "How many basic types are in TypeScript?",
-          a: [
-            { id: 1, value: "6" },
-            { id: 2, value: "8" },
-            { id: 3, value: "10" },
-            { id: 4, value: "5" },
-            { id: 5, value: "Hundreds" }
-          ],
-          correct: [3]
-        },
-        {
-          id: 2,
-          title: "What will the following code output to console:",
-          code: `const obj = { a: 123 };
-                 for (let i = 0; i < 10; i++) {
-                   console.log(i);
-                 }`,
-          a: [
-            { id: 1, value: "6" },
-            { id: 2, value: "8" },
-            { id: 3, value: "10" },
-            { id: 4, value: "5" },
-            { id: 5, value: "Hundreds" }
-          ],
-          correct: [2]
-        }
-      ]
+      q: "What are correct values for boolean type?",
+      t: types.SingleChoice,
+      a: [
+        { id: 1, value: "true, false, undefined and null" },
+        { id: 2, value: "true and false" },
+        { id: 3, value: "true, false, and null" }
+      ],
+      correct: [2]
     }
   ]
 };
