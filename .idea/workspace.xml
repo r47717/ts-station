@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc70059e-cdfc-4feb-94fe-0feff015d02d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.storybook/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stories/index.stories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/MultipleChoiceTest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stories/single-choice-test.stories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stories/test.stories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/SingleChoiceTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SingleChoiceTest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Test.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/index.stories.js" beforeDir="false" afterPath="$PROJECT_DIR$/stories/multiple-choice-test.stories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +37,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/stories" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
@@ -47,10 +48,11 @@
       <recent name="$PROJECT_DIR$/components/SingleChoiceTest.js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/stories" />
+      <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/public/img" />
       <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/pages/category" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -75,7 +77,9 @@
       <workItem from="1584778152366" duration="3325000" />
       <workItem from="1584792353831" duration="1227000" />
       <workItem from="1584793603655" duration="16561000" />
-      <workItem from="1584893340733" duration="1251000" />
+      <workItem from="1584893340733" duration="1381000" />
+      <workItem from="1584943672529" duration="39000" />
+      <workItem from="1584946524073" duration="5850000" />
     </task>
     <servers />
   </component>

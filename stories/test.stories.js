@@ -1,9 +1,10 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Test from "../components/Test";
 
-export default { title: "Test Components" };
+export default { title: "Test Component" };
 
-const test = {
+const data = {
   id: 1,
   category: 1,
   q: "How many basic types are in TypeScript?",
@@ -17,4 +18,4 @@ const test = {
   correct: [1]
 };
 
-export const singleChoice = () => <Test test={test} />;
+export const test = () => <Test test={data} />;
