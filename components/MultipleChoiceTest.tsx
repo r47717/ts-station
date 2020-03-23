@@ -1,10 +1,24 @@
-import React from "react";
+import React, { FC } from "react";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import cn from "classnames";
 
-function MultipleChoiceTest({ name, a, onCheck, showAnswer = false, correct }) {
-  const [selected, setSelected] = useState([]);
+interface IProps {
+  name: string;
+  a: { id: number; value: string }[];
+  onCheck: () => void;
+  showAnswer: boolean;
+  correct: number;
+}
+
+const MultipleChoiceTest: FC<IProps> = ({
+  name,
+  a,
+  onCheck,
+  showAnswer = false,
+  correct
+}) => {
+  const [selected, setSelected] = useState<number[]>([]);
 
   return (
     <div className="d-flex justify-content-between align-items-end">
@@ -14,13 +28,12 @@ function MultipleChoiceTest({ name, a, onCheck, showAnswer = false, correct }) {
             key={choice.id}
             className={cn("choice", {
               correct: showAnswer && choice.id === correct,
-              incorrect:
-                showAnswer && selected === choice.id && selected !== correct
+              incorrect: showAnswer // TBD
             })}
           >
             <input
               type="checkbox"
-              name={choice.id}
+              name={"" + choice.id}
               value={choice.id}
               checked={selected.includes(choice.id)}
               onChange={e =>
@@ -54,6 +67,6 @@ function MultipleChoiceTest({ name, a, onCheck, showAnswer = false, correct }) {
       `}</style>
     </div>
   );
-}
+};
 
 export default MultipleChoiceTest;

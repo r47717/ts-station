@@ -1,9 +1,23 @@
-import React from "react";
+import React, { FC } from "react";
 import { useState } from "react";
 import cn from "classnames";
 
-function SingleChoiceTest({ name, a, onCheck, showAnswer = false, correct }) {
-  const [selected, setSelected] = useState(null);
+interface IProps {
+  name: string;
+  a: { id: number; value: string }[];
+  onCheck: () => void;
+  showAnswer: boolean;
+  correct: number;
+}
+
+const SingleChoiceTest: FC<IProps> = ({
+  name,
+  a,
+  onCheck,
+  showAnswer = false,
+  correct
+}) => {
+  const [selected, setSelected] = useState<number | null>(null);
 
   return (
     <div className="d-flex justify-content-between align-items-end">
@@ -49,6 +63,6 @@ function SingleChoiceTest({ name, a, onCheck, showAnswer = false, correct }) {
       `}</style>
     </div>
   );
-}
+};
 
 export default SingleChoiceTest;

@@ -1,10 +1,19 @@
-import React from "react";
+import React, { FC } from "react";
 import { useState } from "react";
 import SingleChoiceTest from "./SingleChoiceTest";
 
-function Test({ test }) {
+interface IProps {
+  test: {
+    id: number;
+    q: {}[];
+    a: { id: number; value: string }[];
+    correct: number[];
+  };
+}
+
+const Test: FC<IProps> = ({ test }) => {
   const { id, q, a, correct } = test;
-  const [showAnswersList, setShowAnswersList] = useState([]);
+  const [showAnswersList, setShowAnswersList] = useState<number[]>([]);
 
   return (
     <div className="test-block">
@@ -12,7 +21,7 @@ function Test({ test }) {
       <div className="test-block-body">
         {
           <SingleChoiceTest
-            name={id}
+            name={"" + id}
             a={a}
             onCheck={() => setShowAnswersList([...showAnswersList, id])}
             showAnswer={showAnswersList.includes(id)}
@@ -37,6 +46,6 @@ function Test({ test }) {
       `}</style>
     </div>
   );
-}
+};
 
 export default Test;

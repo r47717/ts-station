@@ -1,8 +1,19 @@
 import Layout from "../../components/Layout";
 import data from "../../data";
 import Test from "../../components/Test";
+import { FC } from "react";
 
-function Category({ category, tests }) {
+interface IProps {
+  category: { id: number; title: string; docs: string };
+  tests: {
+    id: number;
+    q: {}[];
+    a: { id: number; value: string }[];
+    correct: number[];
+  }[];
+}
+
+const Category: FC<IProps> = ({ category, tests }) => {
   if (!category) {
     return <div>404 - Not Found</div>;
   }
@@ -44,9 +55,11 @@ function Category({ category, tests }) {
       `}</style>
     </Layout>
   );
-}
+};
 
-export const getStaticProps = async ({ params: { id } }) => {
+export const getStaticProps: (params: any) => Promise<any> = async ({
+  params: { id }
+}) => {
   const { categories, tests: allTests } = data;
 
   const category = categories.find(cat => +cat.id === +id);

@@ -1,13 +1,13 @@
 const resultsKey = "test-station-results";
 
-export function save(data) {
+export function save(data: any) {
   localStorage.setItem(resultsKey, JSON.stringify(data));
 }
 
 export function restore() {
   let data = {};
   try {
-    data = JSON.parse(localStorage.getItem(resultsKey)) || {};
+    data = JSON.parse(localStorage.getItem(resultsKey) || "{}");
   } catch {
     // no action - wrong JSON data, return {}
   }

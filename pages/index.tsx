@@ -37,7 +37,7 @@ function Index() {
             <iframe
               className="w-100 h-100"
               src="https://devblogs.microsoft.com/typescript/"
-              frameborder="0"
+              frameBorder="0"
             />
           </div>
         </div>

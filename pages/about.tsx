@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
+import { FC } from "react";
 
-function About() {
+const About: FC = () => {
   return (
     <Layout page="about" title="Test Station">
       <div>
@@ -52,6 +53,6 @@ function About() {
       `}</style>
     </Layout>
   );
-}
+};
 
 export default About;

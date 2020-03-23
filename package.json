@@ -14,6 +14,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/prettier": "^1.19.1",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "bootstrap": "^4.3.1",
@@ -39,6 +41,9 @@
     "@storybook/addon-knobs": "^5.3.17",
     "@storybook/addon-viewport": "^5.3.17",
     "@storybook/react": "^5.3.17",
-    "babel-loader": "^8.1.0"
+    "@types/node": "^13.9.3",
+    "@types/react": "^16.9.25",
+    "babel-loader": "^8.1.0",
+    "typescript": "^3.8.3"
   }
 }

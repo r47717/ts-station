@@ -4,7 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/common.scss";
 import data from "../data";
 
-function Layout(props) {
+interface IProps {
+  title: string;
+  page: string;
+  activeCategory?: number;
+  children: any;
+}
+
+function Layout(props: IProps) {
   const { categories } = data;
   const { title, page, activeCategory } = props;
 
@@ -37,7 +44,7 @@ function Layout(props) {
                   <a>
                     <div
                       className={
-                        page === "category" && activeCategory == cat.id
+                        page === "category" && activeCategory === cat.id
                           ? "nav-item active"
                           : "nav-item"
                       }

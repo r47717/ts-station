@@ -68,7 +68,7 @@ const map = {
   keywords: `<span style="color: #c7662e">DATA</span>`
 };
 
-function nl2br(str) {
+function nl2br(str: string | undefined | null) {
   if (typeof str === "undefined" || str === null) {
     return "";
   }
@@ -78,7 +78,7 @@ function nl2br(str) {
   );
 }
 
-export function highlight(str) {
+export function highlight(str: string) {
   str = prettier
     .format(str, {
       parser: "typescript",
