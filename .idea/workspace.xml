@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc70059e-cdfc-4feb-94fe-0feff015d02d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/next-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/GithubSummary.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/github.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/MultipleChoiceTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MultipleChoiceTest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/SingleChoiceTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SingleChoiceTest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Test.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/category/[id].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/category/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/syntax.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/syntax.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stories/multiple-choice-test.stories.js" beforeDir="false" afterPath="$PROJECT_DIR$/stories/multiple-choice-test.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stories/single-choice-test.stories.js" beforeDir="false" afterPath="$PROJECT_DIR$/stories/single-choice-test.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stories/test.stories.js" beforeDir="false" afterPath="$PROJECT_DIR$/stories/test.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +19,7 @@
       <list>
         <option value="SCSS File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -90,7 +79,7 @@
       <workItem from="1584793603655" duration="16561000" />
       <workItem from="1584893340733" duration="1381000" />
       <workItem from="1584943672529" duration="39000" />
-      <workItem from="1584946524073" duration="9028000" />
+      <workItem from="1584946524073" duration="14557000" />
     </task>
     <servers />
   </component>

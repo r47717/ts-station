@@ -1,4 +1,25 @@
 import Layout from "../components/Layout";
+import GithubSummary from "../components/GithubSummary";
+
+const webResouces = [
+  {
+    id: 1,
+    url: "https://github.com/Microsoft/TypeScript",
+    name: "Official site"
+  },
+  {
+    id: 2,
+    url: "https://www.typescriptlang.org/play/index.html",
+    name: "Playground"
+  },
+  { id: 3, url: "https://en.wikipedia.org/wiki/TypeScript", name: "Wikipedia" },
+  { id: 4, url: "https://github.com/Microsoft/TypeScript", name: "Github" },
+  {
+    id: 5,
+    url: "https://github.com/Microsoft/TypeScript/wiki/Roadmap",
+    name: "Roadmap"
+  }
+];
 
 function Index() {
   return (
@@ -7,15 +28,17 @@ function Index() {
         <div className="card card-resources">
           <div className="card-header">Major Web Resources</div>
           <div className="card-body">
-            <a href="https://github.com/Microsoft/TypeScript">Official site</a>
-            <a href="https://www.typescriptlang.org/play/index.html">
-              Playground
-            </a>
-            <a href="https://en.wikipedia.org/wiki/TypeScript">Wikipedia</a>
-            <a href="https://github.com/Microsoft/TypeScript">Github</a>
-            <a href="https://github.com/Microsoft/TypeScript/wiki/Roadmap">
-              Roadmap
-            </a>
+            {webResouces.map(item => (
+              <a key={item.id} href={item.url} target="_blank">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className="card card-github">
+          <div className="card-header">Github TypeScript Summary</div>
+          <div className="card-body p-20 overflow-auto">
+            <GithubSummary />
           </div>
         </div>
         <div className="card card-hejlsberg">
@@ -59,6 +82,10 @@ function Index() {
 
         .card-resources {
           grid-area: 1 / 1 / 3 / 2;
+        }
+
+        .card-github {
+          grid-area: 3 / 1 / 5 / 5;
         }
 
         .card-blog {
