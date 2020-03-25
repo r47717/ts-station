@@ -64,6 +64,18 @@ function Layout(props: IProps) {
                 </div>
               </a>
             </Link>
+            <div className="mt-5" />
+            <Link href={"/tsconfig"}>
+              <a>
+                <div
+                  className={
+                    page === "tsconfig" ? "nav-item active" : "nav-item"
+                  }
+                >
+                  TS Config Compiler Options
+                </div>
+              </a>
+            </Link>
           </nav>
           <div className="children">{props.children}</div>
         </div>

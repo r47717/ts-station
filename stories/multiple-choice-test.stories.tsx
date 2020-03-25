@@ -52,6 +52,6 @@ export const withAnswerView = () => (
     a={arr}
     onCheck={action("onCheck")}
     showAnswer={boolean("showAnswer", false)}
-    correct={number("correct", data.correct)}
+    correct={object("correct", data.correct)}
   />
 );

@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc70059e-cdfc-4feb-94fe-0feff015d02d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/stories/multiple-choice-test.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/TsConfigSummary.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/tsconfig.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stories/tsconfig-summary.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/MultipleChoiceTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MultipleChoiceTest.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/multiple-choice-test.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/stories/multiple-choice-test.stories.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +21,7 @@
       <list>
         <option value="SCSS File" />
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -79,7 +85,7 @@
       <workItem from="1584946524073" duration="15312000" />
       <workItem from="1584974456802" duration="1367000" />
       <workItem from="1584979269748" duration="3688000" />
-      <workItem from="1585112602167" duration="11072000" />
+      <workItem from="1585112602167" duration="22680000" />
     </task>
     <servers />
   </component>

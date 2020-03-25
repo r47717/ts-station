@@ -19,11 +19,15 @@ const Wrapper = styled.div`
 
 const TestControls = styled.div``;
 
-const CheckButton = styled.button.attrs<{ small: boolean }>(props => ({
+interface IButtonProps {
+  small?: boolean;
+}
+
+const CheckButton: any = styled.button.attrs<IButtonProps>(props => ({
   className: props.small ? "btn btn-info btn-sm" : "btn btn-info"
 }))``;
 
-const Choice = styled.div<{ choiceId: number; bg: string }>`
+const Choice = styled.div<{ bg: string }>`
   padding: 5px 10px;
   min-width: 100px;
   background: ${props => props.bg};
@@ -52,12 +56,15 @@ const MultipleChoiceTest: FC<IProps> = ({
         {a.map(choice => (
           <Choice
             key={choice.id}
-            choiceId={choice.id}
             bg={
-              showAnswer
-                ? correct.includes(choice.id)
-                  ? "lightgreen"
-                  : "tomato"
+              showAnswer &&
+              selected.includes(choice.id) &&
+              correct.includes(choice.id)
+                ? "lightgreen"
+                : showAnswer &&
+                  selected.includes(choice.id) &&
+                  !correct.includes(choice.id)
+                ? "tomato"
                 : "#ffffff"
             }
           >
@@ -76,7 +83,11 @@ const MultipleChoiceTest: FC<IProps> = ({
           </Choice>
         ))}
       </TestControls>
-      <CheckButton disabled={selected.length === 0} onClick={onCheck} small>
+      <CheckButton
+        disabled={selected.length === 0}
+        onClick={onCheck}
+        small={true}
+      >
         Check
       </CheckButton>
     </Wrapper>
