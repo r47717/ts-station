@@ -8,7 +8,7 @@ interface IProps {
   a: { id: number; value: string }[];
   onCheck: () => void;
   showAnswer: boolean;
-  correct: number;
+  correct: number[];
 }
 
 const Wrapper = styled.div`
@@ -19,15 +19,23 @@ const Wrapper = styled.div`
 
 const TestControls = styled.div``;
 
-const CheckButton = styled.button``;
+const CheckButton = styled.button.attrs<{ small: boolean }>(props => ({
+  className: props.small ? "btn btn-info btn-sm" : "btn btn-info"
+}))``;
 
-const Choice = styled.div<{ choiceId: number; showAnswer: boolean }>`
+const Choice = styled.div<{ choiceId: number; bg: string }>`
   padding: 5px 10px;
   min-width: 100px;
-  background: ${props => (props.showAnswer ? "lightgreen" : "tomato")};
+  background: ${props => props.bg};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-const Checkbox = styled.input``;
+const Checkbox = styled.input`
+  width: 20px;
+  height: 20px;
+`;
 
 const MultipleChoiceTest: FC<IProps> = ({
   name,
@@ -42,10 +50,19 @@ const MultipleChoiceTest: FC<IProps> = ({
     <Wrapper>
       <TestControls>
         {a.map(choice => (
-          <Choice key={choice.id} choiceId={choice.id} showAnswer={true}>
+          <Choice
+            key={choice.id}
+            choiceId={choice.id}
+            bg={
+              showAnswer
+                ? correct.includes(choice.id)
+                  ? "lightgreen"
+                  : "tomato"
+                : "#ffffff"
+            }
+          >
             <Checkbox
               type="checkbox"
-              className="form-control"
               name={"" + choice.id}
               value={choice.id}
               checked={selected.includes(choice.id)}
@@ -59,11 +76,7 @@ const MultipleChoiceTest: FC<IProps> = ({
           </Choice>
         ))}
       </TestControls>
-      <CheckButton
-        className="btn btn-sm btn-info"
-        disabled={selected.length === 0}
-        onClick={onCheck}
-      >
+      <CheckButton disabled={selected.length === 0} onClick={onCheck} small>
         Check
       </CheckButton>
     </Wrapper>
