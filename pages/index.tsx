@@ -1,7 +1,8 @@
+import React from "react";
 import Layout from "../components/Layout";
 import GithubSummary from "../components/GithubSummary";
 
-const webResouces = [
+const webResources = [
   {
     id: 1,
     url: "https://github.com/Microsoft/TypeScript",
@@ -28,7 +29,7 @@ function Index() {
         <div className="card card-resources">
           <div className="card-header">Major Web Resources</div>
           <div className="card-body">
-            {webResouces.map(item => (
+            {webResources.map(item => (
               <a key={item.id} href={item.url} target="_blank">
                 {item.name}
               </a>

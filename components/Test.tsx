@@ -5,7 +5,7 @@ import SingleChoiceTest from "./SingleChoiceTest";
 interface IProps {
   test: {
     id: number;
-    q: {}[];
+    q: string;
     a: { id: number; value: string }[];
     correct: number[];
   };

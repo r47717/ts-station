@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import cn from "classnames";
+import styled from "styled-components";
 
 interface IProps {
   name: string;
@@ -10,6 +10,24 @@ interface IProps {
   showAnswer: boolean;
   correct: number;
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
+const TestControls = styled.div``;
+
+const CheckButton = styled.button``;
+
+const Choice = styled.div<{ choiceId: number; showAnswer: boolean }>`
+  padding: 5px 10px;
+  min-width: 100px;
+  background: ${props => (props.showAnswer ? "lightgreen" : "tomato")};
+`;
+
+const Checkbox = styled.input``;
 
 const MultipleChoiceTest: FC<IProps> = ({
   name,
@@ -21,18 +39,13 @@ const MultipleChoiceTest: FC<IProps> = ({
   const [selected, setSelected] = useState<number[]>([]);
 
   return (
-    <div className="d-flex justify-content-between align-items-end">
-      <div>
+    <Wrapper>
+      <TestControls>
         {a.map(choice => (
-          <div
-            key={choice.id}
-            className={cn("choice", {
-              correct: showAnswer && choice.id === correct,
-              incorrect: showAnswer // TBD
-            })}
-          >
-            <input
+          <Choice key={choice.id} choiceId={choice.id} showAnswer={true}>
+            <Checkbox
               type="checkbox"
+              className="form-control"
               name={"" + choice.id}
               value={choice.id}
               checked={selected.includes(choice.id)}
@@ -43,29 +56,17 @@ const MultipleChoiceTest: FC<IProps> = ({
               }
             />
             &nbsp;&nbsp;&nbsp;{choice.value}
-          </div>
+          </Choice>
         ))}
-      </div>
-      <button
+      </TestControls>
+      <CheckButton
         className="btn btn-sm btn-info"
         disabled={selected.length === 0}
         onClick={onCheck}
       >
         Check
-      </button>
-      <style jsx>{`
-        .choice {
-          padding: 5px 10px;
-          min-width: 100px;
-        }
-        .correct {
-          background: lightgreen;
-        }
-        .incorrect {
-          background: tomato;
-        }
-      `}</style>
-    </div>
+      </CheckButton>
+    </Wrapper>
   );
 };
 

@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from "../../components/Layout";
 import data from "../../data";
 import Test from "../../components/Test";
@@ -7,7 +8,7 @@ interface IProps {
   category: { id: number; title: string; docs: string };
   tests: {
     id: number;
-    q: {}[];
+    q: string;
     a: { id: number; value: string }[];
     correct: number[];
   }[];
